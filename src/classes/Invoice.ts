@@ -1,8 +1,8 @@
  export class Invoice {
 
-    readonly client : string;
-    private details : string;
-    public amount : number;
+    client : string;
+    details : string;
+    amount : number;
 
     constructor (c : string, d: string, a : number) {
 
