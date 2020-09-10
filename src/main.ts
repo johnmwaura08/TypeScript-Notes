@@ -9,21 +9,45 @@ To achieve this, simply type export on the top of your script or additionally yo
 */
 export {}
 
-/*----Type Alias */
+/*----------------Function Signatures */
 
-type StringOrNum = string | number; // saves us time instead of writing string or number everywhere
+//example 1
+let greet : (a : string, b: string) => void;
 
-type objWithName = {
-  name : string,
-  uid: StringOrNum
-}
-const logDetails = (uid: StringOrNum, item : string) => {
-  console.log(`${item} has a uid of ${uid}`)
-}
 
-const greet = (user : objWithName) => {
-  console.log(`${user.name} says hello`);
+// our function will look like this, if one of them was a number it wont work
+greet = (name : string, greeting : string) => {
+
+  console.log(`${name} says ${greeting}`);
   
 }
 
-// this type aliases help us out alot and reduce code duplication
+//example 2
+
+let calc : (a : number, b: number, c: string) => number;
+
+
+calc = (numOne: number, numTwo : number, action : string) => { // we're following the signature of our function types
+
+  if(action === 'add') {
+
+    return numOne + numTwo
+  } 
+  else {
+    return numOne - numTwo
+  }
+}
+
+// example 3
+
+
+let logDetails : (obj : {name : string, age: number}) => void
+
+type person = {name: string, age: number};
+
+
+logDetails  = ( ninja : person) => {  // still valid even if we dont have to type the parameters inside because we've used the type alias
+
+  console.log(`${ninja.name} is ${ninja.age} years old`);
+  
+}

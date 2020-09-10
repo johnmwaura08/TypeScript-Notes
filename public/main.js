@@ -1,9 +1,24 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var logDetails = function (uid, item) {
-    console.log(item + " has a uid of " + uid);
+/*----------------Function Signatures */
+//example 1
+var greet;
+// our function will look like this, if one of them was a number it wont work
+greet = function (name, greeting) {
+    console.log(name + " says " + greeting);
 };
-var greet = function (user) {
-    console.log(user.name + " says hello");
+//example 2
+var calc;
+calc = function (numOne, numTwo, action) {
+    if (action === 'add') {
+        return numOne + numTwo;
+    }
+    else {
+        return numOne - numTwo;
+    }
 };
-// this type aliases help us out alot and reduce code duplication
+// example 3
+var logDetails;
+logDetails = function (ninja) {
+    console.log(ninja.name + " is " + ninja.age + " years old");
+};
