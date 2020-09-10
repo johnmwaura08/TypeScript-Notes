@@ -36,7 +36,7 @@ form.addEventListener('submit', (e : Event) => {
 })
 
 
-//classes 
+/**---------------classes */
 
 // they are very similar to classess in javascript
 // a class is basically a blue print for an object
@@ -46,9 +46,9 @@ form.addEventListener('submit', (e : Event) => {
 
 class Invoice {
 
-    client : string;
-    details : string;
-    amount : number;
+    readonly client : string;
+    private details : string;
+    public amount : number;
 
     constructor (c : string, d: string, a : number) {
 
@@ -79,3 +79,31 @@ invoices.push(InvOne);
 
 invoices.push(InvTwo);
  // we can use our classes with our arrays to limit what types of objects are pushed in the array
+
+ // by default all properties in a class are public and can be modified
+ // if you want to make something private you can say that and you cant then access it  from outside in the class directly 
+ // the other one is readonly, we still can acess it just to read it 
+
+
+ // a shorthand is this one down here but it only works if you're using access modifiers
+
+ /*
+
+
+ class Invoice {
+
+    constructor( 
+        readonly client : string,
+        private details : string,
+        public amount : number
+    ) {
+
+    }
+
+    format ()  {
+
+                return `${this.client} owes ${this.amount} for ${this.details}`
+            }
+ }
+
+ */
