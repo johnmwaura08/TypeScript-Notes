@@ -1,15 +1,25 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-// we moved the ts file to a src folder
-// and everything else to the public folder
-// if we do tsc main.ts it will create another javascript file and put it in the src folder but we dont want that
-//so we do tsc --init in the terminal
-// this creates a tsconfig.json file for us
-//we can go there and find the rootDir , uncomment it and change it to "./src"
-//and then find the OutDir , uncomment it , and change it to "./public"
-//so now weve said that the files in the src should be compiled into the ones in public
-// so now we just need to say tsc -w in the terminal and it'l wait for changes in the src folder and compile them in the public folder
-console.log('test'); // shows up in the js file in the public folder
-// if we create another typescript file outside the src folder, ts will create a js file in the public folder and we dont want that
-// so we go to the tsconfig.json file and at the end we'll write " include" : ["src"]
-//this means it will ony compile files in the src folder
+// let greetings = () => {
+//   console.log("hey there");
+// }
+//typescript will automatically infer greetings to be of type function 
+// we can initialize greetings to be a function with capital F
+var greetings;
+greetings = function () {
+    console.log("hello again");
+};
+// we can also give types to parameters in a function
+var add = function (a, b, c) {
+    console.log(a + b);
+    console.log(c); //logs undefined at the moment
+};
+add(5, 6); //logs 11 in the console
+// add("6", 7) //arleady shows an error because a is supposed to be a number
+// if you want an optional parameter just put a question mark after it and only put it after the required parameters
+var minus = function (a, b) {
+    return a - b;
+};
+var result = minus(10, 7); // the type of result is inferred from the returns of minus
+// however we can explicitly define the type of the return statement by putting after the brackets that contain the parameters
+// if we dont return anything like our add function we can give it type void because it doesnt return anything 
