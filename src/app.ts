@@ -10,6 +10,8 @@
 //however if we grab something by its classname typescript doesnt know what type it is
 // so we can do type casting by using as
 
+import { Invoice} from './classes/Invoice.js' // its dot js because thebrowser compiles js
+
 const form = document. querySelector('.new-item-form') as HTMLFormElement; // therefore we get all the methods and properties available to us 
 
 
@@ -44,26 +46,7 @@ form.addEventListener('submit', (e : Event) => {
 // we could create a class to structure those objects
 
 
-class Invoice {
 
-    readonly client : string;
-    private details : string;
-    public amount : number;
-
-    constructor (c : string, d: string, a : number) {
-
-        this.client = c;
-        this.details = d;
-        this.amount = a;
-
-    }
-
-    format ()  {
-
-        return `${this.client} owes ${this.amount} for ${this.details}`
-    }
-
-}
 
 // we can create an object based on our class
 
