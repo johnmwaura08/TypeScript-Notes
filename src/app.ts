@@ -1,3 +1,37 @@
+/** iNTERFACES */
+
+//used to enforce certain types 
+
+interface IsPerson {
+
+    name : string;
+    age : number;
+
+    speak (a : string) :  void;
+    spend ( a : number) : number
+}
+
+const me : IsPerson = {  // the methods and contents all follow the general structure defined in the interface
+    name: "jonte",
+    age : 30,
+
+    speak(text: string) : void {
+        console.log(text)
+    },
+
+    spend(amount : number) : number {
+        console.log( 'i spent', amount);
+        return amount;
+    }
+}
+
+const greetPerson = (person : IsPerson) => {
+    console.log('hello', person.name)
+}
+greetPerson(me); // logs hello jonte
+
+/**************************************************************************************************************** */
+import { Invoice} from './classes/Invoice.js' // its dot js because thebrowser compiles js
 // export{}
 
 // const anchor = document.querySelector('a')!;
@@ -10,32 +44,31 @@
 //however if we grab something by its classname typescript doesnt know what type it is
 // so we can do type casting by using as
 
-import { Invoice} from './classes/Invoice.js' // its dot js because thebrowser compiles js
 
-const form = document. querySelector('.new-item-form') as HTMLFormElement; // therefore we get all the methods and properties available to us 
-
-
-// inputs 
-
-const type = document.querySelector('#type') as HTMLSelectElement;
-const tofrom = document.querySelector('#tofrom') as HTMLInputElement;
-const details = document.querySelector('#details') as HTMLInputElement;
-const amount = document.querySelector('#amount') as HTMLInputElement;
+// const form = document. querySelector('.new-item-form') as HTMLFormElement; // therefore we get all the methods and properties available to us 
 
 
-form.addEventListener('submit', (e : Event) => {
+// // inputs 
 
-    e.preventDefault();
+// const type = document.querySelector('#type') as HTMLSelectElement;
+// const tofrom = document.querySelector('#tofrom') as HTMLInputElement;
+// const details = document.querySelector('#details') as HTMLInputElement;
+// const amount = document.querySelector('#amount') as HTMLInputElement;
 
-    console.log(
 
-        type.value,
-        tofrom.value,
-        details.value,
-        amount.valueAsNumber // it logs with blue color in the console which shows its a number
-    );
-    // logs payment jonte webdev 500 which i had input in the fields
-})
+// form.addEventListener('submit', (e : Event) => {
+
+//     e.preventDefault();
+
+//     console.log(
+
+//         type.value,
+//         tofrom.value,
+//         details.value,
+//         amount.valueAsNumber // it logs with blue color in the console which shows its a number
+//     );
+//     // logs payment jonte webdev 500 which i had input in the fields
+// })
 
 
 /**---------------classes */
@@ -53,7 +86,7 @@ form.addEventListener('submit', (e : Event) => {
 const InvOne = new Invoice ( 'jonte', ' work on jontes website', 5000)
 const InvTwo= new Invoice ( 'laura', ' work on lauras website', 500)
 
-// console.log(InvOne, InvTwo);
+console.log(InvOne, InvTwo);
 
 let invoices: Invoice[] = []; //now only objects created with the invoice class can be added to this arrray
 
