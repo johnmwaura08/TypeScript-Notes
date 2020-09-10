@@ -34,3 +34,48 @@ form.addEventListener('submit', (e : Event) => {
     );
     // logs payment jonte webdev 500 which i had input in the fields
 })
+
+
+//classes 
+
+// they are very similar to classess in javascript
+// a class is basically a blue print for an object
+// if we wanted to create several invoice objects for our app
+// we could create a class to structure those objects
+
+
+class Invoice {
+
+    client : string;
+    details : string;
+    amount : number;
+
+    constructor (c : string, d: string, a : number) {
+
+        this.client = c;
+        this.details = d;
+        this.amount = a;
+
+    }
+
+    format ()  {
+
+        return `${this.client} owes ${this.amount} for ${this.details}`
+    }
+
+}
+
+// we can create an object based on our class
+
+const InvOne = new Invoice ( 'jonte', ' work on jontes website', 5000)
+const InvTwo= new Invoice ( 'laura', ' work on lauras website', 500)
+
+// console.log(InvOne, InvTwo);
+
+let invoices: Invoice[] = []; //now only objects created with the invoice class can be added to this arrray
+
+
+invoices.push(InvOne);
+
+invoices.push(InvTwo);
+ // we can use our classes with our arrays to limit what types of objects are pushed in the array

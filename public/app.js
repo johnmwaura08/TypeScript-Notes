@@ -19,3 +19,4 @@ form.addEventListener('submit', function (e) {
     );
     // logs payment jonte webdev 500 which i had input in the fields
 });
+//classes 
